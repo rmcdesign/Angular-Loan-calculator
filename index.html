@@ -1,0 +1,75 @@
+<!doctype html>
+<html data-ng-app="mainApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <h2>Finance Calculator</h2>
+
+      
+    <div data-ng-controller="financeController as finance">
+      <form name="myForm">
+
+        <p>
+          <label for="loan-amount">
+            Loan Amount ({{loanAmount | number}}) <br>
+            <input id="loan-amount" type="range" data-ng-model="loanAmount" min="1500" max="50000" step="250" data-ng-change="finance.calculateRepayments()">
+          </label>
+        </p>
+
+        <p>
+          <label for="loan-term">
+            Loan Term ({{loanTerm}}) <br>
+            <input id="loan-term" type="range" data-ng-model="loanTerm" min="24" max="60" step="1" data-ng-change="finance.calculateRepayments()">
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input type="radio" data-ng-model="creditRating" value="excellent" data-ng-change="finance.calculateRepayments()">
+            Excellent
+          </label><br/>
+          <label>
+            <input type="radio" data-ng-model="creditRating" value="good" data-ng-change="finance.calculateRepayments()">
+            Good
+          </label><br/>
+          <label>
+            <input type="radio" data-ng-model="creditRating" value="average" data-ng-change="finance.calculateRepayments()">
+            Average
+          </label><br/>
+          <label>
+            <input type="radio" data-ng-model="creditRating" value="poor" data-ng-change="finance.calculateRepayments()">
+            Poor
+          </label><br/>
+          <label>
+            <input type="radio" data-ng-model="creditRating" value="bad" data-ng-change="finance.calculateRepayments()">
+            Bad
+          </label>
+        </p>
+
+        
+      </form>
+
+      <a href="{{ finance.updateButtonUrl() }}">Apply Now</a>
+
+      <p>
+        <strong>Borrowing &pound;{{loanAmount | number}} over {{loanTerm}} months will cost you &pound;{{ monthlyRepayments | number:2 }} per month</strong> <br>
+        Best available rate:  {{ creditRating }} credit, &pound;{{loanAmount | number}}, {{loanTerm}} months. {{ bestAprVal }}% APR
+      </p>
+
+
+
+      <h3>Representative Example - {{ creditRating | uppercase}} CREDIT</h3>
+
+      <p>Borrowing &pound;7,500 over 48 months with a representative APR of {{repAprVal | number:1}}%, the amount payable would be: &pound;{{ monthlyRepaymentExample | number:2 }} a month, with a total cost of credit of &pound;{{ totalCostExample | number }} and a total amount payable of &pound;{{ totalAmountPayable | number }}</p>
+
+    </div>
+
+      
+  </body>
+</html>
