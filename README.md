@@ -3,4 +3,4 @@ Simple loan calculator using Angular
 
 TODO: Add some styles
 
-http://htmlpreview.github.com/?
+http://htmlpreview.github.com/?https://github.com/rmcdesign/Angular-Loan-calculator/blob/master/index.html
