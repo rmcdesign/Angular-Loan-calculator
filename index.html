@@ -17,7 +17,7 @@
 
         <p>
           <label for="loan-amount">
-            Loan Amount ({{loanAmount | number}}) <br>
+            Loan Amount (&pound;{{loanAmount | number}}) <br>
             <input id="loan-amount" type="range" data-ng-model="loanAmount" min="1500" max="50000" step="250" data-ng-change="finance.calculateRepayments()">
           </label>
         </p>
