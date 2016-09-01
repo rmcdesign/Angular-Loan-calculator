@@ -12,6 +12,13 @@ html {
   box-sizing: inherit;
 }
 
+.container {
+  margin: 30px auto;
+  width: 640px;
+  max-width: 100%;
+  min-width: 480px;
+}
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }

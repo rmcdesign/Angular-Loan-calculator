@@ -9,77 +9,78 @@
   </head>
   <body data-ng-app="mainApp" data-ngCloak>
 
-    <h2>Finance Calculator</h2>
+    <div class="container">
+      <h2>Finance Calculator</h2>
 
-      
-    <div data-ng-controller="financeController as finance">
-      <form name="myForm">
-
-        <div class="loan-controls">
-          <div class="loan-control">
-            <label for="loan-amount">
-              Loan Amount (&pound;{{loanAmount | number}}) <br>
-              <input id="loan-amount" type="range" data-ng-model="loanAmount" min="1500" max="50000" step="250" data-ng-change="finance.calculateRepayments()">
-            </label>
-          </div>
-          <div class="loan-control">
-            <label for="loan-term">
-              Loan Term ({{loanTerm}}) <br>
-              <input id="loan-term" type="range" data-ng-model="loanTerm" min="24" max="60" step="1" data-ng-change="finance.calculateRepayments()">
-            </label>
-          </div>
-        </div>
-
-        <div class="radio-controls">
-          <div class="radio-control">
-            <label for="excellent">
-              <input type="radio" id="excellent" data-ng-model="creditRating" value="excellent" data-ng-change="finance.calculateRepayments()">
-              <span>Excellent</span>
-            </label>
-          </div>
-          <div class="radio-control">
-            <label>
-              <input type="radio" data-ng-model="creditRating" value="good" data-ng-change="finance.calculateRepayments()">
-              <span>Good</span>
-            </label>
-          </div>
-          <div class="radio-control">
-            <label>
-              <input type="radio" data-ng-model="creditRating" value="average" data-ng-change="finance.calculateRepayments()">
-              <span>Average</span>
-            </label>
-          </div>
-          <div class="radio-control">
-            <label>
-              <input type="radio" data-ng-model="creditRating" value="poor" data-ng-change="finance.calculateRepayments()">
-              <span>Poor</span>
-            </label>
-          </div>
-          <div class="radio-control">
-            <label>
-              <input type="radio" data-ng-model="creditRating" value="bad" data-ng-change="finance.calculateRepayments()">
-              <span>Bad</span>
-            </label>
-          </div>
-        </div>
         
-      </form>
+      <div data-ng-controller="financeController as finance">
+        <form name="myForm">
 
-      <a href="{{ finance.updateButtonUrl() }}">Apply Now</a>
+          <div class="loan-controls">
+            <div class="loan-control">
+              <label for="loan-amount">
+                Loan Amount (&pound;{{loanAmount | number}}) <br>
+                <input id="loan-amount" type="range" data-ng-model="loanAmount" min="1500" max="50000" step="250" data-ng-change="finance.calculateRepayments()">
+              </label>
+            </div>
+            <div class="loan-control">
+              <label for="loan-term">
+                Loan Term ({{loanTerm}}) <br>
+                <input id="loan-term" type="range" data-ng-model="loanTerm" min="24" max="60" step="1" data-ng-change="finance.calculateRepayments()">
+              </label>
+            </div>
+          </div>
 
-      <p>
-        <strong>Borrowing &pound;{{loanAmount | number}} over {{loanTerm}} months will cost you &pound;{{ monthlyRepayments | number:2 }} per month</strong> <br>
-        Best available rate:  {{ creditRating }} credit, &pound;{{loanAmount | number}}, {{loanTerm}} months. {{ bestAprVal }}% APR
-      </p>
+          <div class="radio-controls">
+            <div class="radio-control">
+              <label for="excellent">
+                <input type="radio" id="excellent" data-ng-model="creditRating" value="excellent" data-ng-change="finance.calculateRepayments()">
+                <span>Excellent</span>
+              </label>
+            </div>
+            <div class="radio-control">
+              <label>
+                <input type="radio" data-ng-model="creditRating" value="good" data-ng-change="finance.calculateRepayments()">
+                <span>Good</span>
+              </label>
+            </div>
+            <div class="radio-control">
+              <label>
+                <input type="radio" data-ng-model="creditRating" value="average" data-ng-change="finance.calculateRepayments()">
+                <span>Average</span>
+              </label>
+            </div>
+            <div class="radio-control">
+              <label>
+                <input type="radio" data-ng-model="creditRating" value="poor" data-ng-change="finance.calculateRepayments()">
+                <span>Poor</span>
+              </label>
+            </div>
+            <div class="radio-control">
+              <label>
+                <input type="radio" data-ng-model="creditRating" value="bad" data-ng-change="finance.calculateRepayments()">
+                <span>Bad</span>
+              </label>
+            </div>
+          </div>
+          
+        </form>
+
+        <a href="{{ finance.updateButtonUrl() }}">Apply Now</a>
+
+        <p>
+          <strong>Borrowing &pound;{{loanAmount | number}} over {{loanTerm}} months will cost you &pound;{{ monthlyRepayments | number:2 }} per month</strong> <br>
+          Best available rate:  {{ creditRating }} credit, &pound;{{loanAmount | number}}, {{loanTerm}} months. {{ bestAprVal }}% APR
+        </p>
 
 
 
-      <h3>Representative Example - {{ creditRating | uppercase}} CREDIT</h3>
+        <h3>Representative Example - {{ creditRating | uppercase}} CREDIT</h3>
 
-      <p>Borrowing &pound;7,500 over 48 months with a representative APR of {{repAprVal | number:1}}%, the amount payable would be: &pound;{{ monthlyRepaymentExample | number:2 }} a month, with a total cost of credit of &pound;{{ totalCostExample | number }} and a total amount payable of &pound;{{ totalAmountPayable | number }}</p>
+        <p>Borrowing &pound;7,500 over 48 months with a representative APR of {{repAprVal | number:1}}%, the amount payable would be: &pound;{{ monthlyRepaymentExample | number:2 }} a month, with a total cost of credit of &pound;{{ totalCostExample | number }} and a total amount payable of &pound;{{ totalAmountPayable | number }}</p>
 
+      </div>
     </div>
-
       
   </body>
 </html>
