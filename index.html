@@ -15,43 +15,53 @@
     <div data-ng-controller="financeController as finance">
       <form name="myForm">
 
-        <p>
-          <label for="loan-amount">
-            Loan Amount (&pound;{{loanAmount | number}}) <br>
-            <input id="loan-amount" type="range" data-ng-model="loanAmount" min="1500" max="50000" step="250" data-ng-change="finance.calculateRepayments()">
-          </label>
-        </p>
+        <div class="loan-controls">
+          <div class="loan-control">
+            <label for="loan-amount">
+              Loan Amount (&pound;{{loanAmount | number}}) <br>
+              <input id="loan-amount" type="range" data-ng-model="loanAmount" min="1500" max="50000" step="250" data-ng-change="finance.calculateRepayments()">
+            </label>
+          </div>
+          <div class="loan-control">
+            <label for="loan-term">
+              Loan Term ({{loanTerm}}) <br>
+              <input id="loan-term" type="range" data-ng-model="loanTerm" min="24" max="60" step="1" data-ng-change="finance.calculateRepayments()">
+            </label>
+          </div>
+        </div>
 
-        <p>
-          <label for="loan-term">
-            Loan Term ({{loanTerm}}) <br>
-            <input id="loan-term" type="range" data-ng-model="loanTerm" min="24" max="60" step="1" data-ng-change="finance.calculateRepayments()">
-          </label>
-        </p>
-
-        <p>
-          <label>
-            <input type="radio" data-ng-model="creditRating" value="excellent" data-ng-change="finance.calculateRepayments()">
-            Excellent
-          </label><br/>
-          <label>
-            <input type="radio" data-ng-model="creditRating" value="good" data-ng-change="finance.calculateRepayments()">
-            Good
-          </label><br/>
-          <label>
-            <input type="radio" data-ng-model="creditRating" value="average" data-ng-change="finance.calculateRepayments()">
-            Average
-          </label><br/>
-          <label>
-            <input type="radio" data-ng-model="creditRating" value="poor" data-ng-change="finance.calculateRepayments()">
-            Poor
-          </label><br/>
-          <label>
-            <input type="radio" data-ng-model="creditRating" value="bad" data-ng-change="finance.calculateRepayments()">
-            Bad
-          </label>
-        </p>
-
+        <div class="radio-controls">
+          <div class="radio-control">
+            <label for="excellent">
+              <input type="radio" id="excellent" data-ng-model="creditRating" value="excellent" data-ng-change="finance.calculateRepayments()">
+              <span>Excellent</span>
+            </label>
+          </div>
+          <div class="radio-control">
+            <label>
+              <input type="radio" data-ng-model="creditRating" value="good" data-ng-change="finance.calculateRepayments()">
+              <span>Good</span>
+            </label>
+          </div>
+          <div class="radio-control">
+            <label>
+              <input type="radio" data-ng-model="creditRating" value="average" data-ng-change="finance.calculateRepayments()">
+              <span>Average</span>
+            </label>
+          </div>
+          <div class="radio-control">
+            <label>
+              <input type="radio" data-ng-model="creditRating" value="poor" data-ng-change="finance.calculateRepayments()">
+              <span>Poor</span>
+            </label>
+          </div>
+          <div class="radio-control">
+            <label>
+              <input type="radio" data-ng-model="creditRating" value="bad" data-ng-change="finance.calculateRepayments()">
+              <span>Bad</span>
+            </label>
+          </div>
+        </div>
         
       </form>
 
